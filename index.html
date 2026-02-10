@@ -697,6 +697,47 @@
         font-size:14px;
       }
     }
+/* =============== ДРЕСС-КОД =============== */
+
+.dress-note{
+  max-width:640px;
+  margin:0 auto 18px;
+  text-align:center;
+  font-size:15px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+.dress-palette{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.dress-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.dress-color{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
+  border:2px solid rgba(255,255,255,.85);
+  margin-bottom:6px;
+}
+
+/* сами цвета */
+.dress-burgundy{ background:#7b1b33; }  /* бордовый, в тон банта */
+.dress-pink{     background:#f4c5cf; }  /* нежно-розовый */
+.dress-cream{    background:#f7efe3; }  /* сливочный */
+.dress-black{    background:#222222; }  /* чёрный */
 
     @keyframes heartbeat{
       0%, 100%{
@@ -987,6 +1028,35 @@ footer{
           </li>
         </ul>
       </section>
+	  
+	        <!-- Дресс-код -->
+      <section class="section section-narrow reveal" id="dresscode">
+        <h2 class="section-title">Дресс-код</h2>
+
+        <p class="dress-note">
+          Мы будем очень благодарны, если вы поддержите цветовую палитру нашей свадьбы.
+        </p>
+
+        <div class="dress-palette">
+          <div class="dress-item">
+            <div class="dress-color dress-burgundy"></div>
+            <div>бордовый</div>
+          </div>
+          <div class="dress-item">
+            <div class="dress-color dress-pink"></div>
+            <div>нежно-розовый</div>
+          </div>
+          <div class="dress-item">
+            <div class="dress-color dress-cream"></div>
+            <div>сливочный</div>
+          </div>
+          <div class="dress-item">
+            <div class="dress-color dress-black"></div>
+            <div>чёрный</div>
+          </div>
+        </div>
+      </section>
+
 
       <!-- Место регистрации -->
       <section class="section section-narrow reveal" id="place">

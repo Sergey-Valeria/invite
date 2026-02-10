@@ -710,19 +710,23 @@
 
 .dress-palette{
   display:flex;
-  justify-content:center;
-  gap:18px;
+  justify-content:center;   /* всё по центру */
+  column-gap:26px;          /* одинаковое расстояние между кружками */
+  row-gap:18px;             /* если вдруг перенесутся на 2 ряд */
   flex-wrap:wrap;
   margin-top:10px;
 }
 
 .dress-item{
+  width:84px;               /* одинаковая ширина для всех элементов */
   display:flex;
   flex-direction:column;
   align-items:center;
+  text-align:center;
   font-size:12px;
   color:var(--muted);
 }
+
 
 .dress-color{
   width:52px;

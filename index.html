@@ -711,21 +711,23 @@
 /* одна строка, элементы равномерно по ширине */
 .dress-palette{
   display:flex;
-  justify-content:space-between; /* равномерно растянуть */
-  gap:12px;                      /* чуть меньше расстояние */
-  flex-wrap:nowrap;              /* не переносить на новую строку */
-  margin-top:10px;
+  justify-content:space-between; /* равные промежутки между 4 цветами */
+  align-items:flex-start;
+  gap:0;
+  max-width:520px;
+  margin:10px auto 0;
 }
 
 .dress-item{
-  flex:1 1 0;                    /* всем по равной доле ширины */
-  min-width:0;
+  width:80px;                   /* одинаковая ширина подписи под каждым кругом */
   display:flex;
   flex-direction:column;
   align-items:center;
-  font-size:12px;
-  color:var(--muted);
+  text-align:center;
+  font-size:11px;
+  line-height:1.3;
 }
+
 
 .dress-color{
   width:52px;

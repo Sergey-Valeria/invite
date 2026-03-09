@@ -783,26 +783,59 @@
       }
     }
 
-    /* Плавное появление секций */
+ /* Плавное появление секций */
 
-    .reveal{
-      opacity:0;
-      transform:translateY(14px);
-      transition:opacity .6s ease, transform .6s ease;
-    }
-    .reveal.show{
-      opacity:1;
-      transform:translateY(0);
-    }
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.video-link-wrap{
+  margin-top:18px;
+  text-align:center;
+}
+
+.video-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:linear-gradient(135deg, #fff7f7, #f7e6e8);
+  color:#7b2335;
+  font-size:14px;
+  font-weight:500;
+  box-shadow:0 10px 24px rgba(123,35,53,.16);
+  border:1px solid rgba(123,35,53,.14);
+  transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+
+.video-link:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px rgba(123,35,53,.22);
+  background:linear-gradient(135deg, #fffafa, #f3d9de);
+}
+
+.video-link-icon{
+  width:18px;
+  height:18px;
+  display:inline-block;
+  flex:0 0 18px;
+}
 
 footer{
-    text-align:center;
-    font-size:12px;
-    color:var(--muted);
-    margin-top:80px;      /* больше воздуха над именами */
-    padding-bottom:40px;  /* немного отступа от самого низа окна */
-    position:relative;
-    z-index:2;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+  margin-top:80px;
+  padding-bottom:40px;
+  position:relative;
+  z-index:2;
 }
 
 
@@ -1017,32 +1050,32 @@ footer{
           </li>
 
           <li class="program-item">
-            <div class="program-time">
-              <span class="time-heart">
-                <span class="time-num">20</span><span class="time-colon">:</span><span class="time-num">00</span>
-              </span>
-            </div>
-            <div class="program-content">
-              <div class="program-title">Торт</div>
-              <div class="program-text">
-                Разрежем торт и поднимем ещё один сладкий тост за нашу семью.
-              </div>
-            </div>
-          </li>
+  <div class="program-time">
+    <span class="time-heart">
+      <span class="time-num">20</span><span class="time-colon">:</span><span class="time-num">30</span>
+    </span>
+  </div>
+  <div class="program-content">
+    <div class="program-title">Торт</div>
+    <div class="program-text">
+      Разрежем торт и поднимем ещё один сладкий тост за нашу семью.
+    </div>
+  </div>
+</li>
 
           <li class="program-item">
-            <div class="program-time">
-              <span class="time-heart">
-                <span class="time-num">21</span><span class="time-colon">:</span><span class="time-num">00</span>
-              </span>
-            </div>
-            <div class="program-content">
-              <div class="program-title">Завершение вечера</div>
-              <div class="program-text">
-                Обнимемся, скажем друг другу «спасибо» и завершим день на красивой ноте.
-              </div>
-            </div>
-          </li>
+  <div class="program-time">
+    <span class="time-heart">
+      <span class="time-num">21</span><span class="time-colon">:</span><span class="time-num">30</span>
+    </span>
+  </div>
+  <div class="program-content">
+    <div class="program-title">Завершение вечера</div>
+    <div class="program-text">
+      Обнимемся, скажем друг другу «спасибо» и завершим день на красивой ноте.
+    </div>
+  </div>
+</li>
         </ul>
       </section>
 	  
@@ -1108,14 +1141,24 @@ footer{
         <div class="place-layout banquet-layout">
           <div class="place-text">
             <div class="place-title">Праздничный вечер</div>
-            <div class="place-address">Москва, ул. Согласия, 13</div>
-            <div class="place-note">
-              Здесь продолжим праздник — ужин, тосты и танцы.
-            </div>
-          </div>
-        </div>
+            <div class="place-address">Красногорск, ул. Согласия, 13</div>
+           <div class="place-note">
+  Здесь продолжим праздник — ужин, тосты и танцы.
+</div>
+</div>
+</div>
 
-        <div class="map-frame">
+<div class="video-link-wrap">
+  <a class="video-link" href="https://disk.yandex.ru/i/OYxd2b7xdm5qww" target="_blank" rel="noopener">
+    <svg class="video-link-icon" viewBox="0 0 24 24" fill="none">
+      <path d="M12 21s-6.5-4.35-6.5-10A4.5 4.5 0 0 1 10 6.8c.8 0 1.57.22 2 .73.43-.51 1.2-.73 2-.73A4.5 4.5 0 0 1 18.5 11c0 5.65-6.5 10-6.5 10Z" fill="#7b2335"/>
+      <path d="M10.5 9.5l4 2.5-4 2.5v-5Z" fill="#fff"/>
+    </svg>
+    Как пройти до лофта
+  </a>
+</div>
+
+<div class="map-frame">
   <iframe
     src="https://yandex.com/map-widget/v1/?ll=37.377695%2C55.812596&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxOTEwNjExNDYxEmrQoNC-0YHRgdC40Y8sINCc0L7RgdC60L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQmtGA0LDRgdC90L7Qs9C-0YDRgdC6LCDRg9C70LjRhtCwINCh0L7Qs9C70LDRgdC40Y8sIDEzIgoN_4EVQhU-QF9C&z=17.38"
     frameborder="0"

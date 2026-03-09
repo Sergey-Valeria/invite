@@ -90,7 +90,56 @@
     url("bg.jpg") 50% 50% / cover no-repeat;
   z-index:-1;
 }
+/* ===== Лепестки роз на первом экране ===== */
 
+.petals{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+
+.petal{
+  position:absolute;
+  top:-12vh;
+  width:18px;
+  height:26px;
+  opacity:.78;
+  border-radius:65% 35% 60% 40% / 55% 45% 55% 45%;
+  background:linear-gradient(145deg, #8e1f3c, #6f122c 70%, #b94b66);
+  box-shadow:
+    inset -2px -2px 4px rgba(255,255,255,.12),
+    inset 2px 2px 4px rgba(0,0,0,.12),
+    0 4px 10px rgba(70, 8, 24, .18);
+  filter:blur(.15px);
+  animation-name:petalFall;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+}
+
+.petal::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  transform:rotate(18deg) scale(.86);
+  background:linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,0));
+}
+
+@keyframes petalFall{
+  0%{
+    transform:translate3d(0,0,0) rotate(0deg);
+    opacity:0;
+  }
+  8%{
+    opacity:.82;
+  }
+  100%{
+    transform:translate3d(var(--drift, 40px), 115vh, 0) rotate(var(--rot, 220deg));
+    opacity:0;
+  }
+}
 .hero-content{
   position:relative;
   z-index:1;
@@ -826,6 +875,64 @@
   height:18px;
   display:inline-block;
   flex:0 0 18px;
+  animation:heartBeatSoft 2.4s ease-in-out infinite;
+}
+
+@keyframes heartBeatSoft{
+  0%,100%{
+    transform:scale(1);
+  }
+  30%{
+    transform:scale(1.18);
+  }
+  55%{
+    transform:scale(0.95);
+  }
+  75%{
+    transform:scale(1.08);
+  }
+}
+/* ===== Видео popup ===== */
+
+.video-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s ease;
+  z-index:999;
+}
+
+.video-modal.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.video-modal-content{
+  width:min(92vw,720px);
+  background:#000;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.45);
+}
+
+.video-modal iframe{
+  width:100%;
+  height:405px;
+  border:0;
+}
+
+.video-close{
+  position:absolute;
+  top:18px;
+  right:22px;
+  font-size:26px;
+  color:white;
+  cursor:pointer;
 }
 
 footer{
@@ -851,9 +958,10 @@ footer{
 
   <!-- Первая страница -->
   <section class="hero">
-    <div class="hero-bg"></div>
+  <div class="hero-bg"></div>
+  <div class="petals" aria-hidden="true"></div>
 
-    <div class="hero-content">
+  <div class="hero-content">
       <div class="hero-top">
         ПРИГЛАШЕНИЕ НА СВАДЬБУ
       </div>
@@ -1149,7 +1257,7 @@ footer{
 </div>
 
 <div class="video-link-wrap">
-  <a class="video-link" href="https://disk.yandex.ru/i/OYxd2b7xdm5qww" target="_blank" rel="noopener">
+<a class="video-link" href="https://disk.yandex.ru/i/OYxd2b7xdm5qww" target="_blank" rel="noopener">
     <svg class="video-link-icon" viewBox="0 0 24 24" fill="none">
       <path d="M12 21s-6.5-4.35-6.5-10A4.5 4.5 0 0 1 10 6.8c.8 0 1.57.22 2 .73.43-.51 1.2-.73 2-.73A4.5 4.5 0 0 1 18.5 11c0 5.65-6.5 10-6.5 10Z" fill="#7b2335"/>
       <path d="M10.5 9.5l4 2.5-4 2.5v-5Z" fill="#fff"/>
@@ -1248,8 +1356,6 @@ footer{
     const mins  = Math.floor((totalSec % 3600) / 60);
     const secs  = totalSec % 60;
 
-    
-
     elD.textContent = days;
     elH.textContent = pad2(hours);
     elM.textContent = pad2(mins);
@@ -1264,6 +1370,36 @@ setCircle("secs",  secs  / 60);
 
   tick();
   setInterval(tick, 1000);
+  // ===== Лепестки роз на первом экране =====
+const petalsWrap = document.querySelector(".petals");
+
+if (petalsWrap) {
+  const PETALS_COUNT = 18;
+
+  for (let i = 0; i < PETALS_COUNT; i++) {
+    const petal = document.createElement("span");
+    petal.className = "petal";
+
+    const left = Math.random() * 100;
+    const delay = Math.random() * 12;
+    const duration = 10 + Math.random() * 10;   // 10–20 сек
+    const drift = -60 + Math.random() * 120;    // отклонение по X
+    const rotate = -260 + Math.random() * 520;  // вращение
+    const size = 12 + Math.random() * 16;       // размер 12–28 px
+    const opacity = 0.45 + Math.random() * 0.35;
+
+    petal.style.left = left + "vw";
+    petal.style.animationDelay = `-${delay}s`;
+    petal.style.animationDuration = `${duration}s`;
+    petal.style.setProperty("--drift", `${drift}px`);
+    petal.style.setProperty("--rot", `${rotate}deg`);
+    petal.style.width = `${size}px`;
+    petal.style.height = `${size * 1.35}px`;
+    petal.style.opacity = opacity;
+
+    petalsWrap.appendChild(petal);
+  }
+}
 </script>
 </body>
 </html>

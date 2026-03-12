@@ -90,66 +90,7 @@
     url("bg.jpg") 50% 50% / cover no-repeat;
   z-index:-1;
 }
-/* ===== Лепестки роз на первом экране ===== */
 
-.petals{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  overflow:hidden;
-  z-index:0;
-}
-
-.petal{
-  position:absolute;
-  top:-14vh;
-  pointer-events:none;
-  animation-name:petalFall;
-  animation-timing-function:linear;
-  animation-iteration-count:infinite;
-  will-change:transform, opacity;
-}
-
-.petal img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  filter:drop-shadow(0 6px 10px rgba(70, 10, 20, .18));
-  user-select:none;
-  -webkit-user-drag:none;
-}
-
-@keyframes petalFall{
-  0%{
-    transform:translate3d(0,0,0) rotate(0deg) scale(0.96);
-    opacity:0;
-  }
-  8%{
-    opacity:.88;
-  }
-  25%{
-    transform:translate3d(calc(var(--drift, 40px) * .25), 24vh, 0)
-              rotate(calc(var(--rot, 220deg) * .25))
-              scale(1);
-  }
-  50%{
-    transform:translate3d(calc(var(--drift, 40px) * .55), 54vh, 0)
-              rotate(calc(var(--rot, 220deg) * .55))
-              scale(1.04);
-  }
-  75%{
-    transform:translate3d(calc(var(--drift, 40px) * .82), 84vh, 0)
-              rotate(calc(var(--rot, 220deg) * .82))
-              scale(.98);
-  }
-  100%{
-    transform:translate3d(var(--drift, 40px), 115vh, 0)
-              rotate(var(--rot, 220deg))
-              scale(.92);
-    opacity:0;
-  }
-}
 .hero-content{
   position:relative;
   z-index:1;
@@ -969,8 +910,6 @@ footer{
   <!-- Первая страница -->
   <section class="hero">
   <div class="hero-bg"></div>
-  <div class="petals" aria-hidden="true"></div>
-
   <div class="hero-content">
       <div class="hero-top">
         ПРИГЛАШЕНИЕ НА СВАДЬБУ
@@ -1140,32 +1079,46 @@ footer{
           </li>
 
           <li class="program-item">
-            <div class="program-time">
-              <span class="time-heart">
-                <span class="time-num">13</span><span class="time-colon">:</span><span class="time-num">00</span>
-              </span>
-            </div>
-            <div class="program-content">
-              <div class="program-title">Регистрация</div>
-              <div class="program-text">
-                Торжественная церемония, в которой мы официально станем мужем и женой.
-              </div>
-            </div>
-          </li>
+  <div class="program-time">
+    <span class="time-heart">
+      <span class="time-num">13</span><span class="time-colon">:</span><span class="time-num">00</span>
+    </span>
+  </div>
+  <div class="program-content">
+    <div class="program-title">Регистрация</div>
+    <div class="program-text">
+      Торжественная церемония, в которой мы официально станем мужем и женой.
+    </div>
+  </div>
+</li>
 
-          <li class="program-item">
-            <div class="program-time">
-              <span class="time-heart">
-                <span class="time-num">16</span><span class="time-colon">:</span><span class="time-num">30</span>
-              </span>
-            </div>
-            <div class="program-content">
-              <div class="program-title">Банкет</div>
-              <div class="program-text">
-                Тёплые слова, ужин, музыка и танцы — всё, чтобы разделить радость этого дня.
-              </div>
-            </div>
-          </li>
+<li class="program-item">
+  <div class="program-time">
+    <span class="time-heart">
+      <span class="time-num">16</span><span class="time-colon">:</span><span class="time-num">00</span>
+    </span>
+  </div>
+  <div class="program-content">
+    <div class="program-title">Welcome zone</div>
+    <div class="program-text">
+      Сбор гостей, шампанское и угощения.
+    </div>
+  </div>
+</li>
+
+<li class="program-item">
+  <div class="program-time">
+    <span class="time-heart">
+      <span class="time-num">16</span><span class="time-colon">:</span><span class="time-num">30</span>
+    </span>
+  </div>
+  <div class="program-content">
+    <div class="program-title">Банкет</div>
+    <div class="program-text">
+      Тёплые слова, ужин, музыка и танцы — всё, чтобы разделить радость этого дня.
+    </div>
+  </div>
+</li>
 
           <li class="program-item">
   <div class="program-time">
@@ -1380,50 +1333,6 @@ setCircle("secs",  secs  / 60);
 
   tick();
   setInterval(tick, 1000);
-// ===== Лепестки роз на первом экране =====
-const petalsWrap = document.querySelector(".petals");
-
-if (petalsWrap) {
-  const PETALS_COUNT = 35;
-
-  for (let i = 0; i < PETALS_COUNT; i++) {
-    const petal = document.createElement("span");
-    petal.className = "petal";
-
-    const img = document.createElement("img");
-    img.src = "petal.png";
-    img.alt = "";
-
-    const left = Math.random() * 100;
-    const delay = Math.random() * 20;
-    const duration = 16 + Math.random() * 12;
-    const drift = -90 + Math.random() * 180;
-    const rotate = -320 + Math.random() * 640;
-
-    const width = 30 + Math.random() * 26;   // 18–34 px
-    const height = width * 1.25;
-
-    const opacity = 0.45 + Math.random() * 0.35;
-
-    petal.style.left = left + "vw";
-    petal.style.width = `${width}px`;
-    petal.style.height = `${height}px`;
-    petal.style.opacity = opacity;
-    petal.style.animationDelay = `-${delay}s`;
-    petal.style.animationDuration = `${duration}s`;
-    petal.style.setProperty("--drift", `${drift}px`);
-    petal.style.setProperty("--rot", `${rotate}deg`);
-
-    // часть лепестков чуть размыта — выглядит естественнее
-    if (Math.random() < 0.28) {
-      img.style.filter = "drop-shadow(0 6px 10px rgba(70,10,20,.15)) blur(0.6px)";
-      petal.style.opacity = 0.32 + Math.random() * 0.18;
-    }
-
-    petal.appendChild(img);
-    petalsWrap.appendChild(petal);
-  }
-}
 </script>
 </body>
 </html>

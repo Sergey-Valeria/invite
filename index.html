@@ -453,9 +453,9 @@
 .intro-paper-text{
   position:absolute;
   left:50%;
-  top:11.5%;
+  top:11%;
   transform:translateX(-50%);
-  width:44%;
+  width:54%;
   text-align:center;
   color:#4a3730;
 }
@@ -487,28 +487,30 @@
 
 @media (max-width:640px){
   .intro-envelope{
-    max-width:100%;
+    width:min(96vw, 460px);
+    margin:0 auto;
   }
 
   .intro-paper-text{
-    width:54%;
-    top:7.2%;
+    width:64%;
+    top:12.5%;
   }
 
   .intro-paper-text .intro-quote{
-    font-size:18px;
-    margin-bottom:6px;
+    font-size:24px;
+    margin-bottom:8px;
+    line-height:1.08;
   }
 
   .intro-paper-text .intro-title{
-    font-size:13px;
-    margin-bottom:5px;
+    font-size:17px;
+    margin-bottom:8px;
   }
 
   .intro-paper-text p{
-    font-size:10.8px;
-    line-height:1.2;
-    margin-bottom:4px;
+    font-size:14px;
+    line-height:1.34;
+    margin-bottom:6px;
   }
 }
 
@@ -1181,6 +1183,11 @@
   transform:translateY(4px) scale(.95);
 }
 
+.invite-seal-btn.pressed{
+  transform:translateY(10px) scale(.88);
+  filter:brightness(.96);
+}
+
 .invite-seal-img{
   display:block;
   width:148px;
@@ -1197,11 +1204,12 @@
 
 @media (max-width:640px){
   .invite-seal-img{
-    width:112px;
+    width:148px;
   }
 
   .invite-open-label{
-    font-size:9px;
+    font-size:11px;
+    letter-spacing:.18em;
   }
 }
 
@@ -1672,12 +1680,22 @@ const openInviteBtn = document.getElementById("openInviteBtn");
 
 if (inviteCover && openInviteBtn) {
   openInviteBtn.addEventListener("click", () => {
-    openInviteBtn.disabled = true;
-    inviteCover.classList.add("card-closing");
+    if (openInviteBtn.disabled) return;
 
+    openInviteBtn.disabled = true;
+
+    /* сначала именно печать вдавливается */
+    openInviteBtn.classList.add("pressed");
+
+    /* потом уже закрывается вся стартовая обложка */
     setTimeout(() => {
-  inviteCover.classList.add("hide");
-}, 1550);
+      inviteCover.classList.add("card-closing");
+    }, 260);
+
+    /* и только потом она исчезает */
+    setTimeout(() => {
+      inviteCover.classList.add("hide");
+    }, 1850);
   });
 }
 </script>

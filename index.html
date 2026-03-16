@@ -27,7 +27,13 @@
 
     *{ box-sizing:border-box; }
 
-   body{
+   html, body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+body{
   margin:0;
   font-family:"Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color:var(--ink);
@@ -43,12 +49,14 @@ body.cover-locked{
 a{ color:inherit; text-decoration:none; }
 
 .page{
+  width:100%;
   min-height:100vh;
   display:flex;
   flex-direction:column;
   opacity:0;
   visibility:hidden;
   transition:opacity .35s ease;
+  overflow-x:hidden;
 }
 
 body.invite-opened .page{
@@ -363,17 +371,17 @@ body.invite-opened .page{
 .intro-paper-text{
   position:absolute;
   left:50%;
-  top:8.8%;
+  top:10.3%;
   transform:translateX(-50%);
-  width:54%;
+  width:48%;
   text-align:center;
   color:#4a3730;
 }
 
 .intro-paper-text .intro-quote{
   font-family:"Great Vibes", cursive;
-  font-size:34px;
-  line-height:1.04;
+  font-size:38px;
+  line-height:1.02;
   margin:0 0 8px;
   color:#9a3043;
 }
@@ -387,61 +395,60 @@ body.invite-opened .page{
 }
 
 .intro-paper-text p{
-  margin:0 0 5px;
+  margin:0 0 6px;
   font-family:"Cormorant Garamond","Playfair Display",serif;
-  font-size:17px;
-  line-height:1.18;
+  font-size:18px;
+  line-height:1.22;
   font-style:italic;
 }
 
 @media (max-width:900px){
   .intro-paper-text{
-    top:8.7%;
-    width:55%;
+    top:10.4%;
+    width:49%;
   }
 
   .intro-paper-text .intro-quote{
-    font-size:29px;
+    font-size:31px;
   }
 
   .intro-paper-text .intro-title{
-    font-size:20px;
+    font-size:21px;
   }
 
   .intro-paper-text p{
-    font-size:14px;
+    font-size:15px;
   }
 }
 
 @media (max-width:640px){
   .intro-envelope{
-    width:calc(100% + 54px);
-    max-width:560px;
+    width:92vw;
+    max-width:92vw;
     margin:0 auto 14px;
-    margin-left:50%;
-    transform:translateX(-50%);
+    transform:none;
   }
 
   .intro-paper-text{
-    top:8.2%;
-    width:56%;
+    top:10.1%;
+    width:47%;
   }
 
   .intro-paper-text .intro-quote{
-    font-size:21px;
-    margin-bottom:5px;
-    line-height:1.02;
+    font-size:24px;
+    margin-bottom:6px;
+    line-height:1.03;
   }
 
   .intro-paper-text .intro-title{
-    font-size:15px;
-    margin-bottom:5px;
+    font-size:17px;
+    margin-bottom:6px;
   }
 
   .intro-paper-text p{
-    font-size:10.4px;
-    line-height:1.14;
-    margin-bottom:3px;
+    font-size:11.4px;
+    line-height:1.20;
+    margin-bottom:4px;
   }
 }
 

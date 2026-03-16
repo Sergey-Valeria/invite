@@ -1124,7 +1124,7 @@ footer{
 
   </style>
 </head>
-<body>
+<body class="cover-locked">
 <div class="invite-cover" id="inviteCover">
   <div class="invite-cover-card">
     <div class="invite-cover-top">Свадебное приглашение</div>
@@ -1566,8 +1566,9 @@ setCircle("secs",  secs  / 60);
   }
 
   tick();
-  setInterval(tick, 1000);
-  // ===== Стартовая обложка =====
+setInterval(tick, 1000);
+
+// ===== Стартовая обложка =====
 const inviteCover = document.getElementById("inviteCover");
 const openInviteBtn = document.getElementById("openInviteBtn");
 
@@ -1583,19 +1584,22 @@ if (inviteCover && openInviteBtn) {
     /* 2. быстрое возвращение */
     setTimeout(() => {
       openInviteBtn.classList.remove("pressed");
-    }, 140);
+    }, 170);
 
-    /* 3. маленькая пауза после "клика" */
+    /* 3. сначала открываем основную страницу */
     setTimeout(() => {
+      document.body.classList.add("invite-opened");
+      document.body.classList.remove("cover-locked");
       inviteCover.classList.add("card-closing");
     }, 420);
 
-    /* 4. затем скрываем стартовый экран */
+    /* 4. потом скрываем стартовый экран */
     setTimeout(() => {
       inviteCover.classList.add("hide");
     }, 1280);
   });
 }
+
 
 </script>
 </body>

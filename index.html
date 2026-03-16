@@ -331,53 +331,188 @@
   color:#3a2720;
 }
 
-/* Карточка-письмо для блока "Дорогие родные и друзья!" */
+/* ===== Настоящий конверт в блоке приглашения ===== */
+
 #intro .intro-letter{
-  max-width:860px;
-  margin:0 auto;
-  padding:26px 20px 30px;
-  border-radius:22px;
-  background:#fdf1e4;                 /* однотонная «бумага» */
-  box-shadow:0 18px 36px rgba(0,0,0,0.10);
-  border:1px solid #f3d2b8;           /* тонкая рамка в тон */
   position:relative;
+  max-width:760px;
+  margin:0 auto;
+  min-height:560px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
 }
 
+#intro .intro-envelope{
+  display:block;
+  width:100%;
+  max-width:760px;
+  height:auto;
+  filter:drop-shadow(0 18px 30px rgba(60, 25, 20, .16));
+}
 
-/* "язычок" сверху — как загнутый край конверта */
-#intro .intro-letter::before{
-  content:"";
+#intro .intro-letter-content{
   position:absolute;
-  top:-18px;
+  top:15%;
   left:50%;
   transform:translateX(-50%);
-  width:90px;
-  height:36px;
-  background:linear-gradient(to bottom, #f7e4cf, #fdf5e9);
-  border-radius:0 0 90px 90px;
-  box-shadow:0 12px 24px rgba(0,0,0,0.10);
+  width:60%;
+  text-align:center;
+  z-index:2;
 }
 
-/* мягкая тень снизу, чтобы письмо как будто лежало на фоне */
-#intro .intro-letter::after{
-  content:"";
-  position:absolute;
-  left:10%;
-  right:10%;
-  bottom:-20px;
-  height:40px;
-  background:radial-gradient(ellipse at center,
-    rgba(0,0,0,0.18) 0%,
-    rgba(0,0,0,0.0) 70%);
-  opacity:0.35;
-  z-index:-1;
+#intro .quote-line{
+  margin-top:0;
+  margin-bottom:18px;
+  font-size:42px;
+  line-height:1.2;
+  color:#9c2d42;
 }
+
+#intro .section-title{
+  margin-bottom:16px;
+}
+
+#intro .p-large{
+  font-size:18px;
+  line-height:1.75;
+  margin-bottom:14px;
+}
+
+/* адаптация под планшеты */
+@media (max-width: 900px){
+  #intro .intro-letter{
+    min-height:500px;
+  }
+
+  #intro .intro-letter-content{
+    top:14%;
+    width:66%;
+  }
+
+  #intro .quote-line{
+    font-size:36px;
+  }
+
+  #intro .p-large{
+    font-size:17px;
+  }
+}
+
+/* адаптация под телефоны */
+@media (max-width: 640px){
+  #intro .intro-letter{
+    min-height:auto;
+  }
+
+  #intro .intro-envelope{
+    width:100%;
+  }
+
+  #intro .intro-letter-content{
+    top:13%;
+    width:72%;
+  }
+
+  #intro .quote-line{
+    font-size:24px;
+    margin-bottom:10px;
+    line-height:1.15;
+  }
+
+  #intro .section-title{
+    font-size:20px;
+    margin-bottom:10px;
+  }
+
+  #intro .p-large{
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:8px;
+  }
+}
+
 
 /* немного подправляем отступы цитаты внутри письма */
 #intro .quote-line{
   margin-top:6px;
   margin-bottom:18px;
 }
+.intro-envelope{
+  position:relative;
+  max-width:760px;
+  margin:0 auto;
+}
+
+.intro-envelope-img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.intro-paper-text{
+  position:absolute;
+  left:50%;
+  top:11.5%;
+  transform:translateX(-50%);
+  width:44%;
+  text-align:center;
+  color:#4a3730;
+}
+
+.intro-paper-text .intro-quote{
+  font-family:"Great Vibes", cursive;
+  font-size:32px;
+  line-height:1.05;
+  margin:0 0 12px;
+  color:#8f3042;
+}
+
+
+.intro-paper-text .intro-title{
+  font-family:"Cormorant Garamond","Playfair Display",serif;
+  font-size:22px;
+  font-weight:600;
+  margin:0 0 12px;
+  letter-spacing:.02em;
+}
+
+.intro-paper-text p{
+  margin:0 0 10px;
+  font-family:"Cormorant Garamond","Playfair Display",serif;
+  font-size:18px;
+  line-height:1.34;
+  font-style:italic;
+}
+
+@media (max-width:640px){
+  .intro-envelope{
+    max-width:100%;
+  }
+
+  .intro-paper-text{
+    width:54%;
+    top:7.2%;
+  }
+
+  .intro-paper-text .intro-quote{
+    font-size:18px;
+    margin-bottom:6px;
+  }
+
+  .intro-paper-text .intro-title{
+    font-size:13px;
+    margin-bottom:5px;
+  }
+
+  .intro-paper-text p{
+    font-size:10.8px;
+    line-height:1.2;
+    margin-bottom:4px;
+  }
+}
+
+
 
     .muted{
       color:var(--muted);
@@ -487,28 +622,32 @@
 
     /* Календарь */
 
-    .calendar2{
-      margin-top:8px;
-      padding:16px 18px 20px;
-      border-radius:18px;
-      background:rgba(255,255,255,.9);
-      border:1px solid rgba(255,255,255,.95);
-      box-shadow:0 18px 40px rgba(0,0,0,.06);
-    }
+  .calendar2{
+  margin-top:14px;
+  padding:24px 24px 26px;
+  border-radius:24px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.95);
+  box-shadow:0 18px 40px rgba(0,0,0,.06);
+  max-width:520px;
+  margin-left:auto;
+  margin-right:auto;
+}
 
     .cal2-header{
       text-align:center;
       margin-bottom:6px;
     }
 
-    .cal2-month{
-      font-family:"Great Vibes", cursive;
-      font-size:32px;
-      line-height:1;
-    }
+  .cal2-month{
+  font-family:"Great Vibes", cursive;
+  font-size:42px;
+  line-height:1;
+}
+
 
     .cal2-year{
-      font-size:13px;
+  font-size:15px;
       letter-spacing:.16em;
       text-transform:uppercase;
       color:var(--muted);
@@ -516,13 +655,14 @@
     }
 
     .cal2-grid{
-      display:grid;
-      grid-template-columns:repeat(7,1fr);
-      gap:4px;
-      text-align:center;
-      font-size:12px;
-      margin-top:8px;
-    }
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+  text-align:center;
+  font-size:15px;
+  margin-top:14px;
+}
+
 
     .cal2-dow{
       font-size:10px;
@@ -532,7 +672,7 @@
     }
 
 .cal2-day{
-  padding:7px 0;
+  padding:10px 0;
   border-radius:999px;
   font-size:12px;
   color:#4b413a;
@@ -794,6 +934,26 @@
   opacity:1;
   transform:translateY(0);
 }
+.reveal-seq{
+  opacity:0;
+  transform:translateY(26px);
+  transition:
+    opacity 1.45s ease,
+    transform 1.45s cubic-bezier(.22,.61,.36,1);
+}
+
+
+.reveal-seq.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.delay-1{ transition-delay:.18s; }
+.delay-2{ transition-delay:.34s; }
+.delay-3{ transition-delay:.50s; }
+.delay-4{ transition-delay:.66s; }
+.delay-5{ transition-delay:.82s; }
+.delay-6{ transition-delay:.98s; }
 
 .video-link-wrap{
   margin-top:18px;
@@ -896,10 +1056,13 @@
   justify-content:center;
   padding:24px;
   background:
-    linear-gradient(rgba(20, 10, 12, .42), rgba(20, 10, 12, .58)),
+    linear-gradient(rgba(35,16,20,.28), rgba(35,16,20,.42)),
     url("bg.jpg") center center / cover no-repeat;
-  transition:opacity .75s ease, visibility .75s ease;
+  transition:
+    opacity 1.45s ease,
+    visibility 1.45s ease;
 }
+
 
 .invite-cover.hide{
   opacity:0;
@@ -907,76 +1070,144 @@
   pointer-events:none;
 }
 
+.invite-cover.card-closing .invite-cover-card{
+  transform:scale(.86) translateY(24px);
+  opacity:0;
+  filter:blur(4px);
+}
+
+
 .invite-cover-card{
-  width:min(92vw, 430px);
-  padding:34px 26px 30px;
-  border-radius:28px;
-  background:rgba(255,255,255,.14);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.22);
-  box-shadow:0 20px 50px rgba(0,0,0,.20);
+  width:min(88vw, 460px);
+  padding:0;
+  background:transparent;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  box-shadow:none;
+  border:none;
   text-align:center;
   color:#fff;
+  transition:
+    transform .9s cubic-bezier(.22,.61,.36,1),
+    opacity .9s ease;
 }
 
 .invite-cover-top{
   font-size:11px;
   letter-spacing:.28em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.82);
-  margin-bottom:20px;
+  color:rgba(255,255,255,.84);
+  margin-bottom:22px;
 }
 
 .invite-cover-names{
   font-family:"Great Vibes", cursive;
-  font-size:clamp(48px, 10vw, 78px);
-  line-height:1.05;
-  margin-bottom:10px;
+  font-size:clamp(50px, 9vw, 74px);
+  line-height:1.02;
+  margin-bottom:16px;
   color:#fff;
+  text-shadow:0 3px 18px rgba(70,10,20,.14);
 }
 
 .invite-cover-date{
   font-family:"Playfair Display", serif;
-  font-size:16px;
+  font-size:18px;
   letter-spacing:.08em;
-  color:rgba(255,255,255,.92);
-  margin-bottom:28px;
+  color:rgba(255,255,255,.94);
+  margin-bottom:30px;
 }
 
 .invite-open-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
-  min-width:210px;
-  padding:14px 22px;
+  gap:12px;
+  min-width:250px;
+  padding:16px 26px;
   border:none;
-  border-radius:999px;
+  border-radius:18px;
   cursor:pointer;
-  background:linear-gradient(135deg, #fff7f7, #f1d8dd);
-  color:#7b2335;
+  background:linear-gradient(180deg, #8b3045 0%, #742437 100%);
+  color:#fff;
   font-family:"Montserrat", sans-serif;
-  font-size:14px;
+  font-size:15px;
   font-weight:500;
-  box-shadow:0 12px 28px rgba(70, 10, 20, .18);
-  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  letter-spacing:.02em;
+  box-shadow:
+    0 12px 28px rgba(70,10,20,.24),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    background .35s ease;
 }
 
 .invite-open-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 16px 34px rgba(70, 10, 20, .24);
-  background:linear-gradient(135deg, #fffafa, #efd2d8);
+  transform:translateY(-3px);
+  box-shadow:
+    0 16px 34px rgba(70,10,20,.30),
+    inset 0 1px 0 rgba(255,255,255,.12);
+  background:linear-gradient(180deg, #99384f 0%, #7d2940 100%);
 }
+
+
 
 .invite-open-btn:active{
-  transform:translateY(0);
+  transform:translateY(-1px);
 }
 
-.invite-open-btn-icon{
-  font-size:16px;
-  line-height:1;
+
+.invite-open-wrap{
+  margin-top:22px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
 }
+
+.invite-seal-btn{
+  background:none;
+  border:none;
+  padding:0;
+  cursor:pointer;
+  transition:transform .18s ease, filter .18s ease;
+}
+
+.invite-seal-btn:hover{
+  transform:translateY(-2px) scale(1.02);
+}
+
+.invite-seal-btn:active{
+  transform:translateY(4px) scale(.95);
+}
+
+.invite-seal-img{
+  display:block;
+  width:148px;
+  height:auto;
+  filter:drop-shadow(0 12px 22px rgba(70,10,20,.30));
+}
+
+.invite-open-label{
+  font-size:11px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.96);
+}
+
+@media (max-width:640px){
+  .invite-seal-img{
+    width:112px;
+  }
+
+  .invite-open-label{
+    font-size:9px;
+  }
+}
+
+
+
+
 footer{
   text-align:center;
   font-size:12px;
@@ -999,12 +1230,16 @@ footer{
     <div class="invite-cover-top">Свадебное приглашение</div>
     <div class="invite-cover-names">Сергей и Валерия</div>
     <div class="invite-cover-date">25 апреля 2026</div>
-    <button class="invite-open-btn" id="openInviteBtn" type="button">
-      <span class="invite-open-btn-icon">♡</span>
-      Открыть приглашение
-    </button>
+
+    <div class="invite-open-wrap">
+      <button class="invite-seal-btn" id="openInviteBtn" type="button" aria-label="Открыть приглашение">
+        <img src="seal.png" alt="" class="invite-seal-img">
+      </button>
+      <div class="invite-open-label">Открыть приглашение</div>
+    </div>
   </div>
 </div>
+
 <div class="page">
 
   <div class="side-birds"></div>
@@ -1081,23 +1316,19 @@ footer{
 
       <!-- Текст-приглашение -->
       <section id="intro" class="section section-narrow reveal">
-  <div class="intro-letter">
-    <div class="quote-line">
-      «Два сердца бьются в унисон»
-    </div>
-    <h2 class="section-title">Дорогие родные и друзья!</h2>
+  <div class="intro-envelope">
+    <img src="envelope.png" alt="Письмо с приглашением" class="intro-envelope-img">
 
-    <p class="p-large">
-      В нашей жизни скоро произойдёт важный день — мы станем семьёй.
-    </p>
-    <p class="p-large">
-      Нам очень хочется разделить этот момент с теми, кто нам по-настоящему дорог.
-    </p>
-    <p class="p-large">
-      Пусть <strong>25 апреля</strong> станет датой, которая останется в наших общих воспоминаниях.
-    </p>
+<div class="intro-paper-text">
+  <div class="intro-quote">«Два сердца — одна история»</div>
+  <div class="intro-title">Дорогие родные и друзья!</div>
+  <p>25 апреля мы станем семьёй.</p>
+  <p>Будем счастливы разделить этот день вместе с вами.</p>
+  <p>С любовью ждём вас на нашем празднике.</p>
+</div>
   </div>
 </section>
+
 
 <!-- Календарь -->
       <section class="section section-narrow reveal" id="calendar">
@@ -1163,10 +1394,10 @@ footer{
 
       <!-- Программа дня -->
       <section class="section section-narrow reveal" id="program">
-        <h2 class="section-title">Программа дня</h2>
+        <h2 class="section-title reveal-seq delay-1">Программа дня</h2>
 
         <ul class="program-list">
-          <li class="program-item">
+          <li class="program-item reveal-seq delay-2">
             <div class="program-time">
               <span class="time-heart">
                 <span class="time-num">12</span><span class="time-colon">:</span><span class="time-num">30</span>
@@ -1180,7 +1411,7 @@ footer{
             </div>
           </li>
 
-          <li class="program-item">
+          <li class="program-item reveal-seq delay-3">
   <div class="program-time">
     <span class="time-heart">
       <span class="time-num">13</span><span class="time-colon">:</span><span class="time-num">00</span>
@@ -1194,7 +1425,7 @@ footer{
   </div>
 </li>
 
-<li class="program-item">
+<li class="program-item reveal-seq delay-4">
   <div class="program-time">
     <span class="time-heart">
       <span class="time-num">16</span><span class="time-colon">:</span><span class="time-num">00</span>
@@ -1208,7 +1439,7 @@ footer{
   </div>
 </li>
 
-<li class="program-item">
+<li class="program-item reveal-seq delay-5">
   <div class="program-time">
     <span class="time-heart">
       <span class="time-num">16</span><span class="time-colon">:</span><span class="time-num">30</span>
@@ -1222,7 +1453,7 @@ footer{
   </div>
 </li>
 
-          <li class="program-item">
+          <li class="program-item reveal-seq delay-6">
   <div class="program-time">
     <span class="time-heart">
       <span class="time-num">20</span><span class="time-colon">:</span><span class="time-num">30</span>
@@ -1236,7 +1467,7 @@ footer{
   </div>
 </li>
 
-          <li class="program-item">
+          <li class="program-item reveal-seq delay-6">
   <div class="program-time">
     <span class="time-heart">
       <span class="time-num">21</span><span class="time-colon">:</span><span class="time-num">30</span>
@@ -1254,13 +1485,13 @@ footer{
 	  
 	        <!-- Дресс-код -->
       <section class="section section-narrow reveal" id="dresscode">
-        <h2 class="section-title">Дресс-код</h2>
+        <h2 class="section-title reveal-seq delay-1">Дресс-код</h2>
 
-        <p class="dress-note">
+        <p class="dress-note reveal-seq delay-2">
           Мы будем очень благодарны, если вы поддержите цветовую палитру нашей свадьбы.
         </p>
 
-        <div class="dress-palette">
+       <div class="dress-palette reveal-seq delay-3">
           <div class="dress-item">
             <div class="dress-color dress-burgundy"></div>
             <div>бордовый</div>
@@ -1360,7 +1591,7 @@ footer{
   }, { threshold:0.18 });
 
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
+document.querySelectorAll(".reveal-seq").forEach(el => observer.observe(el));
   // ===== Таймер с кольцами =====
   const targetTime = new Date("2026-04-25T13:00:00+03:00").getTime();
 
@@ -1441,7 +1672,12 @@ const openInviteBtn = document.getElementById("openInviteBtn");
 
 if (inviteCover && openInviteBtn) {
   openInviteBtn.addEventListener("click", () => {
-    inviteCover.classList.add("hide");
+    openInviteBtn.disabled = true;
+    inviteCover.classList.add("card-closing");
+
+    setTimeout(() => {
+  inviteCover.classList.add("hide");
+}, 1550);
   });
 }
 </script>

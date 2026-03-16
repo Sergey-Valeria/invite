@@ -350,7 +350,7 @@ body.invite-opened .page{
 .intro-envelope{
   position:relative;
   width:min(100%, 760px);
-  margin:0 auto 12px;
+  margin:0 auto 14px;
 }
 
 .intro-envelope-img{
@@ -363,16 +363,16 @@ body.invite-opened .page{
 .intro-paper-text{
   position:absolute;
   left:50%;
-  top:10.2%;
+  top:8.8%;
   transform:translateX(-50%);
-  width:50%;
+  width:54%;
   text-align:center;
   color:#4a3730;
 }
 
 .intro-paper-text .intro-quote{
   font-family:"Great Vibes", cursive;
-  font-size:38px;
+  font-size:34px;
   line-height:1.04;
   margin:0 0 8px;
   color:#9a3043;
@@ -387,61 +387,61 @@ body.invite-opened .page{
 }
 
 .intro-paper-text p{
-  margin:0 0 6px;
+  margin:0 0 5px;
   font-family:"Cormorant Garamond","Playfair Display",serif;
-  font-size:18px;
-  line-height:1.22;
+  font-size:17px;
+  line-height:1.18;
   font-style:italic;
 }
 
 @media (max-width:900px){
   .intro-paper-text{
-    top:10.4%;
-    width:51%;
+    top:8.7%;
+    width:55%;
   }
 
   .intro-paper-text .intro-quote{
-    font-size:31px;
+    font-size:29px;
   }
 
   .intro-paper-text .intro-title{
-    font-size:21px;
+    font-size:20px;
   }
 
   .intro-paper-text p{
-    font-size:15px;
+    font-size:14px;
   }
 }
 
 @media (max-width:640px){
   .intro-envelope{
-    width:calc(100% + 42px);
-    max-width:520px;
-    margin:0 auto 12px;
+    width:calc(100% + 54px);
+    max-width:560px;
+    margin:0 auto 14px;
     margin-left:50%;
     transform:translateX(-50%);
   }
 
   .intro-paper-text{
-    top:9.4%;
-    width:49%;
+    top:8.2%;
+    width:56%;
   }
 
   .intro-paper-text .intro-quote{
-    font-size:23px;
-    margin-bottom:6px;
-    line-height:1.03;
+    font-size:21px;
+    margin-bottom:5px;
+    line-height:1.02;
   }
 
   .intro-paper-text .intro-title{
-    font-size:16px;
-    margin-bottom:6px;
+    font-size:15px;
+    margin-bottom:5px;
   }
 
   .intro-paper-text p{
-    font-size:10.8px;
-    line-height:1.18;
-    margin-bottom:4px;
+    font-size:10.4px;
+    line-height:1.14;
+    margin-bottom:3px;
   }
 }
 
@@ -991,8 +991,8 @@ body.invite-opened .page{
     linear-gradient(rgba(35,16,20,.28), rgba(35,16,20,.42)),
     url("bg.jpg") center center / cover no-repeat;
   transition:
-    opacity 1.1s ease,
-    visibility 1.1s ease;
+    opacity 1.45s ease,
+    visibility 1.45s ease;
 }
 
 .invite-cover.hide{
@@ -1002,7 +1002,7 @@ body.invite-opened .page{
 }
 
 .invite-cover.card-closing .invite-cover-card{
-  transform:scale(.95) translateY(8px);
+  transform:scale(.97) translateY(12px);
   opacity:0;
   filter:blur(6px);
 }
@@ -1018,9 +1018,9 @@ body.invite-opened .page{
   text-align:center;
   color:#fff;
   transition:
-    transform 1s cubic-bezier(.22,.61,.36,1),
-    opacity 1s ease,
-    filter 1s ease;
+    transform 1.35s cubic-bezier(.22,.61,.36,1),
+    opacity 1.35s ease,
+    filter 1.35s ease;
 }
 
 .invite-cover-top{
@@ -1063,8 +1063,8 @@ body.invite-opened .page{
   cursor:pointer;
   transform-origin:center center;
   transition:
-    transform .18s ease-out,
-    filter .18s ease-out;
+    transform .16s ease-out,
+    filter .16s ease-out;
 }
 
 .invite-seal-btn:hover{
@@ -1076,32 +1076,32 @@ body.invite-opened .page{
 }
 
 .invite-seal-btn.pressed{
-  transform:translateY(7px) scale(.92);
-  filter:brightness(.94);
+  transform:translateY(6px) scale(.95);
+  filter:brightness(.95);
 }
 
 .invite-seal-img{
   display:block;
-  width:158px;
+  width:174px;
   height:auto;
   filter:drop-shadow(0 12px 20px rgba(70,10,20,.30));
 }
 
 .invite-open-label{
-  font-size:10px;
-  letter-spacing:.12em;
+  font-size:9px;
+  letter-spacing:.11em;
   text-transform:uppercase;
   color:rgba(255,255,255,.96);
 }
 
 @media (max-width:640px){
   .invite-seal-img{
-    width:178px;
+    width:196px;
   }
 
   .invite-open-label{
     font-size:8px;
-    letter-spacing:.10em;
+    letter-spacing:.09em;
   }
 }
 
@@ -1578,25 +1578,25 @@ if (inviteCover && openInviteBtn) {
 
     openInviteBtn.disabled = true;
 
-    /* 1. короткое вдавливание */
+    // 1. короткий чёткий клик печати
     openInviteBtn.classList.add("pressed");
 
-    /* 2. быстрое возвращение */
+    // 2. быстрое возвращение печати
     setTimeout(() => {
       openInviteBtn.classList.remove("pressed");
-    }, 170);
+    }, 150);
 
-    /* 3. сначала открываем основную страницу */
+    // 3. пауза после клика
     setTimeout(() => {
       document.body.classList.add("invite-opened");
       document.body.classList.remove("cover-locked");
       inviteCover.classList.add("card-closing");
-    }, 420);
+    }, 980);
 
-    /* 4. потом скрываем стартовый экран */
+    // 4. затем плавно убираем стартовый экран
     setTimeout(() => {
       inviteCover.classList.add("hide");
-    }, 1280);
+    }, 2380);
   });
 }
 

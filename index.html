@@ -371,9 +371,9 @@ body.invite-opened .page{
 .intro-paper-text{
   position:absolute;
   left:50%;
-  top:8.2%;
+  top:8.8%;
   transform:translateX(-50%);
-  width:45%;
+  width:46%;
   text-align:center;
   color:#4a3730;
 }
@@ -388,7 +388,7 @@ body.invite-opened .page{
 
 .intro-paper-text .intro-title{
   font-family:"Cormorant Garamond","Playfair Display",serif;
-  font-size:22px;
+  font-size:23px;
   font-weight:600;
   margin:0 0 8px;
   letter-spacing:.01em;
@@ -397,8 +397,8 @@ body.invite-opened .page{
 .intro-paper-text p{
   margin:0 0 5px;
   font-family:"Cormorant Garamond","Playfair Display",serif;
-  font-size:16px;
-  line-height:1.18;
+  font-size:17px;
+  line-height:1.20;
   font-style:italic;
 }
 
@@ -432,9 +432,9 @@ body.invite-opened .page{
   }
 
   .intro-paper-text{
-    top:8.1%;
-    width:46%;
-  }
+  top:8.8%;
+  width:46.5%;
+}
 
   .intro-paper-text .intro-quote{
     font-size:22px;
@@ -443,16 +443,16 @@ body.invite-opened .page{
   }
 
   .intro-paper-text .intro-title{
-    font-size:15px;
-    margin-bottom:6px;
-    line-height:1.05;
-  }
+  font-size:16px;
+  margin-bottom:6px;
+  line-height:1.05;
+}
 
   .intro-paper-text p{
-    font-size:11px;
-    line-height:1.17;
-    margin-bottom:4px;
-  }
+  font-size:11.6px;
+  line-height:1.19;
+  margin-bottom:4px;
+}
 }
 
 
@@ -1021,7 +1021,7 @@ body.invite-opened .page{
 }
 
 .invite-cover-card{
-  width:min(92vw, 560px);
+  width:min(96vw, 610px);
   margin:0 auto;
   padding:0;
   background:transparent;
@@ -1042,8 +1042,8 @@ body.invite-opened .page{
   letter-spacing:.26em;
   text-transform:uppercase;
   color:#8c2c43;
-  margin-top:22px;
-  margin-bottom:12px;
+  margin-top:38px;
+  margin-bottom:14px;
 }
 
 .invite-cover-names{
@@ -1060,13 +1060,13 @@ body.invite-opened .page{
   font-size:19px;
   letter-spacing:.06em;
   color:#8c2c43;
-  margin:0 0 8px;
+  margin:0 0 2px;
 }
 
 .invite-envelope-wrap{
   position:relative;
-  width:min(100%, 560px);
-  margin:-10px auto 0;
+  width:min(100%, 600px);
+  margin:-28px auto 0;
 }
 
 .invite-envelope-img{
@@ -1098,12 +1098,12 @@ body.invite-opened .page{
 }
 
 .invite-seal-btn:active{
-  transform:translate(-50%, -49.7%) scale(.992);
+  transform:translate(-50%, -48.6%) scale(.976);
 }
 
 .invite-seal-btn.pressed{
-  transform:translate(-50%, -49.6%) scale(.988);
-  filter:brightness(.97);
+  transform:translate(-50%, -47.6%) scale(.958);
+  filter:brightness(.95);
 }
 
 .invite-seal-img{
@@ -1114,11 +1114,14 @@ body.invite-opened .page{
 }
 
 .invite-open-label{
-  margin-top:-18px;
+  margin-top:-34px;
   font-size:10px;
   letter-spacing:.10em;
   text-transform:uppercase;
-  color:rgba(140,44,67,.95);
+  color:rgba(255,255,255,.96);
+  position:relative;
+  z-index:3;
+  text-shadow:0 1px 8px rgba(0,0,0,.18);
 }
 
 @media (max-width:640px){
@@ -1128,9 +1131,9 @@ body.invite-opened .page{
   }
 
   .invite-cover-top{
-    margin-top:28px;
-    margin-bottom:14px;
-  }
+  margin-top:46px;
+  margin-bottom:16px;
+}
 
   .invite-cover-names{
     font-size:clamp(50px, 14vw, 84px);
@@ -1142,9 +1145,12 @@ body.invite-opened .page{
     margin:0 0 10px;
   }
 
-  .invite-envelope-wrap{
-  width:min(100%, 590px);
-  margin-top:-16px;
+ .invite-envelope-wrap{
+  width:calc(100% + 22px);
+  max-width:none;
+  margin:-34px auto 0;
+  margin-left:50%;
+  transform:translateX(-50%);
 }
 
   .invite-seal-btn{
@@ -1157,10 +1163,14 @@ body.invite-opened .page{
   }
 
   .invite-open-label{
-    margin-top:-24px;
-    font-size:9px;
-    letter-spacing:.09em;
-  }
+  margin-top:-42px;
+  font-size:9px;
+  letter-spacing:.09em;
+  color:rgba(255,255,255,.96);
+  position:relative;
+  z-index:3;
+  text-shadow:0 1px 8px rgba(0,0,0,.18);
+}
 }
 
 footer{
@@ -1638,21 +1648,21 @@ if (inviteCover && openInviteBtn) {
     openInviteBtn.classList.add("pressed");
 
     // 2. быстрое возвращение печати
-    setTimeout(() => {
-      openInviteBtn.classList.remove("pressed");
-    }, 150);
+setTimeout(() => {
+  openInviteBtn.classList.remove("pressed");
+}, 110);
 
-    // 3. пауза после клика
-    setTimeout(() => {
-      document.body.classList.add("invite-opened");
-      document.body.classList.remove("cover-locked");
-      inviteCover.classList.add("card-closing");
-    }, 980);
+// 3. короткая пауза после клика
+setTimeout(() => {
+  document.body.classList.add("invite-opened");
+  document.body.classList.remove("cover-locked");
+  inviteCover.classList.add("card-closing");
+}, 760);
 
-    // 4. затем плавно убираем стартовый экран
-    setTimeout(() => {
-      inviteCover.classList.add("hide");
-    }, 2380);
+// 4. затем плавно убираем стартовый экран
+setTimeout(() => {
+  inviteCover.classList.add("hide");
+}, 1860);
   });
 }
 

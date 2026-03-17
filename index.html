@@ -55,13 +55,17 @@ a{ color:inherit; text-decoration:none; }
   flex-direction:column;
   opacity:0;
   visibility:hidden;
-  transition:opacity .35s ease;
+  transform:translateY(18px);
+  transition:
+    opacity .95s ease,
+    transform .95s cubic-bezier(.22,.61,.36,1);
   overflow-x:hidden;
 }
 
 body.invite-opened .page{
   opacity:1;
   visibility:visible;
+  transform:translateY(0);
 }
 
 
@@ -1004,8 +1008,8 @@ body.invite-opened .page{
     linear-gradient(rgba(35,16,20,.18), rgba(35,16,20,.28)),
     url("bg.jpg") center center / cover no-repeat;
   transition:
-    opacity 1.25s ease,
-    visibility 1.25s ease;
+    opacity 1.4s ease,
+    visibility 1.4s ease;
 }
 
 .invite-cover.hide{
@@ -1015,9 +1019,9 @@ body.invite-opened .page{
 }
 
 .invite-cover.card-closing .invite-cover-card{
-  transform:translateY(18px) scale(.985);
+  transform:translateY(10px) scale(.992);
   opacity:0;
-  filter:blur(4px);
+  filter:blur(2px);
 }
 
 .invite-cover-card{
@@ -1032,9 +1036,9 @@ body.invite-opened .page{
   text-align:center;
   color:#fff;
   transition:
-    transform 1.15s cubic-bezier(.22,.61,.36,1),
-    opacity 1.15s ease,
-    filter 1.15s ease;
+    transform 1.25s cubic-bezier(.22,.61,.36,1),
+    opacity 1.25s ease,
+    filter 1.25s ease;
 }
 
 .invite-cover-top{
@@ -1114,7 +1118,7 @@ body.invite-opened .page{
 }
 
 .invite-open-label{
-  margin-top:-34px;
+  margin-top:-18px;
   font-size:10px;
   letter-spacing:.10em;
   text-transform:uppercase;
@@ -1163,7 +1167,7 @@ body.invite-opened .page{
   }
 
   .invite-open-label{
-  margin-top:-42px;
+  margin-top:-26px;
   font-size:9px;
   letter-spacing:.09em;
   color:rgba(255,255,255,.96);
@@ -1204,7 +1208,7 @@ footer{
       </button>
     </div>
 
-    <div class="invite-open-label">Открыть приглашение</div>
+    <div class="invite-open-label">Нажмите на печать</div>
   </div>
 </div>
 
@@ -1644,25 +1648,25 @@ if (inviteCover && openInviteBtn) {
 
     openInviteBtn.disabled = true;
 
-    // 1. короткий чёткий клик печати
+    // 1. мягкое нажатие на печать
     openInviteBtn.classList.add("pressed");
 
-    // 2. быстрое возвращение печати
-setTimeout(() => {
-  openInviteBtn.classList.remove("pressed");
-}, 110);
+    // 2. возврат печати
+    setTimeout(() => {
+      openInviteBtn.classList.remove("pressed");
+    }, 140);
 
-// 3. короткая пауза после клика
-setTimeout(() => {
-  document.body.classList.add("invite-opened");
-  document.body.classList.remove("cover-locked");
-  inviteCover.classList.add("card-closing");
-}, 760);
+    // 3. сначала мягко уходит карточка обложки
+    setTimeout(() => {
+      inviteCover.classList.add("card-closing");
+    }, 420);
 
-// 4. затем плавно убираем стартовый экран
-setTimeout(() => {
-  inviteCover.classList.add("hide");
-}, 1860);
+    // 4. затем одновременно открывается приглашение и растворяется обложка
+    setTimeout(() => {
+      document.body.classList.add("invite-opened");
+      document.body.classList.remove("cover-locked");
+      inviteCover.classList.add("hide");
+    }, 760);
   });
 }
 

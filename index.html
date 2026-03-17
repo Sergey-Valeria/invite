@@ -356,9 +356,9 @@ body.invite-opened .page{
 /* ===== Настоящий конверт в блоке приглашения ===== */
 
 .intro-envelope{
-position:relative;
-  width:min(100%, 760px);
-  margin:0 auto 14px;
+  position:relative;
+  width:min(100%, 780px);
+  margin:0 auto 18px;
 }
 
 .intro-envelope-img{
@@ -371,26 +371,26 @@ position:relative;
 .intro-paper-text{
   position:absolute;
   left:50%;
-  top:7.8%;
+  top:8.5%;
   transform:translateX(-50%);
-  width:42%;
+  width:41%;
   text-align:center;
   color:#4a3730;
 }
 
 .intro-paper-text .intro-quote{
   font-family:"Great Vibes", cursive;
-  font-size:34px;
+  font-size:36px;
   line-height:1.02;
-  margin:0 0 7px;
+  margin:0 0 8px;
   color:#9a3043;
 }
 
 .intro-paper-text .intro-title{
   font-family:"Cormorant Garamond","Playfair Display",serif;
-  font-size:22px;
+  font-size:23px;
   font-weight:600;
-  margin:0 0 7px;
+  margin:0 0 8px;
   letter-spacing:.01em;
 }
 
@@ -404,16 +404,16 @@ position:relative;
 
 @media (max-width:900px){
   .intro-paper-text{
-    top:8%;
-    width:43%;
+    top:8.7%;
+    width:42%;
   }
 
   .intro-paper-text .intro-quote{
-    font-size:28px;
+    font-size:30px;
   }
 
   .intro-paper-text .intro-title{
-    font-size:19px;
+    font-size:20px;
   }
 
   .intro-paper-text p{
@@ -424,34 +424,37 @@ position:relative;
 
 @media (max-width:640px){
   .intro-envelope{
-    width:94vw;
-    max-width:94vw;
-    margin:0 auto 14px;
+    width:calc(100% + 120px);
+    max-width:none;
+    margin:0 auto 18px;
+    margin-left:50%;
+    transform:translateX(-50%);
   }
 
   .intro-paper-text{
-    top:8.1%;
-    width:45%;
+    top:8.8%;
+    width:44%;
   }
 
   .intro-paper-text .intro-quote{
-    font-size:21px;
-    margin-bottom:5px;
+    font-size:23px;
+    margin-bottom:6px;
     line-height:1.02;
   }
 
   .intro-paper-text .intro-title{
-    font-size:14px;
-    margin-bottom:5px;
+    font-size:16px;
+    margin-bottom:6px;
     line-height:1.05;
   }
 
   .intro-paper-text p{
-    font-size:10px;
+    font-size:11.4px;
     line-height:1.16;
-    margin-bottom:3px;
+    margin-bottom:4px;
   }
 }
+
 
 
     .muted{
@@ -537,35 +540,25 @@ position:relative;
     }
 	/* На телефоне — ЗАГС и текст по центру, один под другим */
 @media (max-width:640px){
-  .intro-envelope{
-    width:calc(100% + 84px);
-    max-width:none;
-    margin:0 auto 14px;
-    margin-left:50%;
-    transform:translateX(-50%);
+  .place-layout{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
   }
 
-  .intro-paper-text{
-    top:8.6%;
-    width:44%;
+  .place-text{
+    text-align:center;
   }
 
-  .intro-paper-text .intro-quote{
-    font-size:20px;
-    margin-bottom:5px;
-    line-height:1.02;
+  .place-illustration{
+    text-align:center;
   }
 
-  .intro-paper-text .intro-title{
-    font-size:12px;
-    margin-bottom:5px;
-    line-height:1.05;
-  }
-
-  .intro-paper-text p{
-    font-size:8.8px;
-    line-height:1.14;
-    margin-bottom:3px;
+  #intro .quote-line{
+    font-size:28px;
+    letter-spacing:0.01em;
+    margin-top:10px;
+    margin-bottom:16px;
   }
 }
 
@@ -1005,13 +998,14 @@ position:relative;
   display:flex;
   align-items:flex-start;
   justify-content:center;
-  padding:72px 18px 24px;
+  padding:110px 18px 28px;
+  overflow-y:auto;
   background:
-    linear-gradient(rgba(244,238,233,.56), rgba(244,238,233,.56)),
-    url("bg.jpg") center top / cover no-repeat;
+    linear-gradient(rgba(35,16,20,.18), rgba(35,16,20,.28)),
+    url("bg.jpg") center center / cover no-repeat;
   transition:
-    opacity 1.45s ease,
-    visibility 1.45s ease;
+    opacity 1.25s ease,
+    visibility 1.25s ease;
 }
 
 .invite-cover.hide{
@@ -1021,13 +1015,14 @@ position:relative;
 }
 
 .invite-cover.card-closing .invite-cover-card{
-  transform:scale(.985) translateY(10px);
+  transform:translateY(18px) scale(.985);
   opacity:0;
   filter:blur(4px);
 }
 
 .invite-cover-card{
   width:min(92vw, 560px);
+  margin:0 auto;
   padding:0;
   background:transparent;
   backdrop-filter:none;
@@ -1037,9 +1032,9 @@ position:relative;
   text-align:center;
   color:#fff;
   transition:
-    transform 1.35s cubic-bezier(.22,.61,.36,1),
-    opacity 1.35s ease,
-    filter 1.35s ease;
+    transform 1.15s cubic-bezier(.22,.61,.36,1),
+    opacity 1.15s ease,
+    filter 1.15s ease;
 }
 
 .invite-cover-top{
@@ -1047,14 +1042,14 @@ position:relative;
   letter-spacing:.26em;
   text-transform:uppercase;
   color:#8c2c43;
-  margin-bottom:14px;
+  margin-bottom:18px;
 }
 
 .invite-cover-names{
   font-family:"Great Vibes", cursive;
-  font-size:clamp(50px, 9vw, 74px);
-  line-height:1.02;
-  margin-bottom:8px;
+  font-size:clamp(52px, 10vw, 78px);
+  line-height:1.0;
+  margin-bottom:14px;
   color:#fff;
   text-shadow:0 3px 18px rgba(70,10,20,.14);
 }
@@ -1064,13 +1059,13 @@ position:relative;
   font-size:19px;
   letter-spacing:.06em;
   color:#8c2c43;
-  margin:0 0 10px;
+  margin:0 0 18px;
 }
 
 .invite-envelope-wrap{
   position:relative;
-  width:min(88vw, 430px);
-  margin:20px auto 0;
+  width:min(94vw, 470px);
+  margin:28px auto 0;
 }
 
 .invite-envelope-img{
@@ -1084,77 +1079,85 @@ position:relative;
 
 .invite-seal-btn{
   position:absolute;
-  left:49%;
-  top:60.5%;
-  transform:translate(-50%, -50%);
+  left:48.2%;
+  top:61.8%;
+  transform:translate(-50%, -50%) scale(1);
   background:none;
   border:none;
   padding:0;
   cursor:pointer;
   transform-origin:center center;
   transition:
-    transform .12s ease-out,
-    filter .12s ease-out;
+    transform .16s ease-out,
+    filter .16s ease-out;
 }
 
 .invite-seal-btn:hover{
-  transform:translate(-50%, -50.6%) scale(1.008);
+  transform:translate(-50%, -50%) scale(1.01);
 }
 
 .invite-seal-btn:active{
-  transform:translate(-50%, -49.3%) scale(.985);
+  transform:translate(-50%, -49.3%) scale(.988);
 }
 
 .invite-seal-btn.pressed{
-  transform:translate(-50%, -48.7%) scale(.975);
-  filter:brightness(.96);
+  transform:translate(-50%, -49%) scale(.982);
+  filter:brightness(.97);
 }
 
 .invite-seal-img{
   display:block;
-  width:126px;
+  width:132px;
   height:auto;
   filter:drop-shadow(0 12px 20px rgba(70,10,20,.30));
 }
 
 .invite-open-label{
-  margin-top:12px;
-  font-size:9px;
-  letter-spacing:.11em;
+  margin-top:8px;
+  font-size:10px;
+  letter-spacing:.10em;
   text-transform:uppercase;
-  color:rgba(140,44,67,.80);
+  color:rgba(140,44,67,.95);
 }
 
 @media (max-width:640px){
   .invite-cover{
-    padding:66px 16px 20px;
+    padding-top:132px;
+    padding-bottom:24px;
   }
 
   .invite-cover-top{
     font-size:10px;
-    margin-bottom:12px;
+    margin-bottom:18px;
   }
 
   .invite-cover-names{
-    font-size:clamp(44px, 14vw, 72px);
+    font-size:clamp(50px, 14vw, 84px);
+    margin-bottom:16px;
   }
 
   .invite-cover-date{
     font-size:18px;
-    margin:0 0 8px;
+    margin:0 0 18px;
   }
 
   .invite-envelope-wrap{
-    width:min(90vw, 450px);
-    margin-top:18px;
+    width:min(98vw, 520px);
+    margin-top:30px;
+  }
+
+  .invite-seal-btn{
+    left:47.8%;
+    top:62.3%;
   }
 
   .invite-seal-img{
-    width:132px;
+    width:136px;
   }
 
   .invite-open-label{
-    font-size:8px;
+    margin-top:6px;
+    font-size:9px;
     letter-spacing:.09em;
   }
 }
@@ -1277,8 +1280,8 @@ footer{
   <div class="intro-quote">«Два сердца — одна история»</div>
   <div class="intro-title">Дорогие родные и друзья!</div>
   <p>25 апреля мы станем семьёй.</p>
-  <p>Для нас очень важно разделить<br>этот день вместе с вами.</p>
-  <p>С любовью ждём вас<br>на нашем празднике.</p>
+  <p>Для нас очень важно разделить этот день вместе с вами.</p>
+  <p>С любовью ждём вас на нашем празднике.</p>
 </div>
   </div>
 </section>
@@ -1506,21 +1509,21 @@ footer{
 </div>
 </div>
 
+<div class="map-frame">
+  <iframe
+    src="https://yandex.com/map-widget/v1/?ll=37.377695%2C55.812596&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxOTEwNjExNDYxEmrQoNC-0YHRgdC40Y8sINCc0L7RgdC60L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQmtGA0LDRgdC90L7Qs9C-0YDRgdC6LCDRg9C70LjRhtCwINCh0L7Qs9C70LDRgdC40Y8sIDEzIgoN_4EVQhU-QF9C&z=17.38"
+    frameborder="0"
+    allowfullscreen="true"></iframe>
+</div>
+
 <div class="video-link-wrap">
-<a class="video-link" href="https://disk.yandex.ru/i/OYxd2b7xdm5qww" target="_blank" rel="noopener">
+  <a class="video-link" href="https://disk.yandex.ru/i/OYxd2b7xdm5qww" target="_blank" rel="noopener">
     <svg class="video-link-icon" viewBox="0 0 24 24" fill="none">
       <path d="M12 21s-6.5-4.35-6.5-10A4.5 4.5 0 0 1 10 6.8c.8 0 1.57.22 2 .73.43-.51 1.2-.73 2-.73A4.5 4.5 0 0 1 18.5 11c0 5.65-6.5 10-6.5 10Z" fill="#7b2335"/>
       <path d="M10.5 9.5l4 2.5-4 2.5v-5Z" fill="#fff"/>
     </svg>
     Как пройти до лофта
   </a>
-</div>
-
-<div class="map-frame">
-  <iframe
-    src="https://yandex.com/map-widget/v1/?ll=37.377695%2C55.812596&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxOTEwNjExNDYxEmrQoNC-0YHRgdC40Y8sINCc0L7RgdC60L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQmtGA0LDRgdC90L7Qs9C-0YDRgdC6LCDRg9C70LjRhtCwINCh0L7Qs9C70LDRgdC40Y8sIDEzIgoN_4EVQhU-QF9C&z=17.38"
-    frameborder="0"
-    allowfullscreen="true"></iframe>
 </div>
       </section>
 

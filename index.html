@@ -1648,29 +1648,24 @@ if (inviteCover && openInviteBtn) {
 
     openInviteBtn.disabled = true;
 
-    // 1. мягкое нажатие на печать
     openInviteBtn.classList.add("pressed");
 
-    // 2. печать чуть медленнее возвращается
     setTimeout(() => {
       openInviteBtn.classList.remove("pressed");
-    }, 180);
+    }, 200);
 
-    // 3. через паузу начинает плавно уходить стартовая карточка
     setTimeout(() => {
       inviteCover.classList.add("card-closing");
-    }, 650);
+    }, 760);
 
-    // 4. потом начинает открываться основная страница
     setTimeout(() => {
       document.body.classList.add("invite-opened");
       document.body.classList.remove("cover-locked");
-    }, 1500);
+    }, 1700);
 
-    // 5. и только потом полностью растворяется стартовая обложка
     setTimeout(() => {
       inviteCover.classList.add("hide");
-    }, 1780);
+    }, 1980);
   });
 }
 

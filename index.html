@@ -371,24 +371,24 @@ body.invite-opened .page{
 .intro-paper-text{
   position:absolute;
   left:50%;
-  top:8.7%;
+  top:8.9%;
   transform:translateX(-50%);
-  width:42%;
+  width:44%;
   text-align:center;
   color:#4a3730;
 }
 
 .intro-paper-text .intro-quote{
   font-family:"Great Vibes", cursive;
-  font-size:36px;
-  line-height:1.02;
+  font-size:34px;
+  line-height:1.04;
   margin:0 0 8px;
   color:#9a3043;
 }
 
 .intro-paper-text .intro-title{
   font-family:"Cormorant Garamond","Playfair Display",serif;
-  font-size:23px;
+  font-size:22px;
   font-weight:600;
   margin:0 0 8px;
   letter-spacing:.01em;
@@ -397,44 +397,61 @@ body.invite-opened .page{
 .intro-paper-text p{
   margin:0 0 5px;
   font-family:"Cormorant Garamond","Playfair Display",serif;
-  font-size:16px;
+  font-size:15px;
   line-height:1.18;
   font-style:italic;
 }
 
 @media (max-width:900px){
   .intro-paper-text{
-    top:8.8%;
-    width:42.5%;
+    top:9.0%;
+    width:44.5%;
   }
 
   .intro-paper-text .intro-quote{
-    font-size:30px;
+    font-size:29px;
   }
 
   .intro-paper-text .intro-title{
-    font-size:20px;
+    font-size:19px;
   }
 
   .intro-paper-text p{
-    font-size:13.5px;
+    font-size:12.8px;
     line-height:1.16;
   }
 }
 
 @media (max-width:640px){
-  .place-layout{
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
+  .intro-envelope{
+    width:calc(100% + 112px);
+    max-width:none;
+    margin:0 auto 18px;
+    margin-left:50%;
+    transform:translateX(-50%);
   }
 
-  .place-text{
-    text-align:center;
+  .intro-paper-text{
+    top:8.9%;
+    width:45%;
   }
 
-  .place-illustration{
-    text-align:center;
+  .intro-paper-text .intro-quote{
+    font-size:22px;
+    margin-bottom:6px;
+    line-height:1.03;
+  }
+
+  .intro-paper-text .intro-title{
+    font-size:15px;
+    margin-bottom:6px;
+    line-height:1.05;
+  }
+
+  .intro-paper-text p{
+    font-size:10.4px;
+    line-height:1.17;
+    margin-bottom:4px;
   }
 }
 
@@ -1025,14 +1042,15 @@ body.invite-opened .page{
   letter-spacing:.26em;
   text-transform:uppercase;
   color:#8c2c43;
-  margin-bottom:18px;
+  margin-top:22px;
+  margin-bottom:12px;
 }
 
 .invite-cover-names{
   font-family:"Great Vibes", cursive;
   font-size:clamp(52px, 10vw, 78px);
   line-height:1.0;
-  margin-bottom:14px;
+  margin-bottom:10px;
   color:#fff;
   text-shadow:0 3px 18px rgba(70,10,20,.14);
 }
@@ -1042,13 +1060,13 @@ body.invite-opened .page{
   font-size:19px;
   letter-spacing:.06em;
   color:#8c2c43;
-  margin:0 0 16px;
+  margin:0 0 8px;
 }
 
 .invite-envelope-wrap{
   position:relative;
-  width:min(94vw, 470px);
-  margin:10px auto 0;
+  width:min(100%, 520px);
+  margin:0 auto 0;
 }
 
 .invite-envelope-img{
@@ -1062,8 +1080,8 @@ body.invite-opened .page{
 
 .invite-seal-btn{
   position:absolute;
-  left:48.2%;
-  top:60.8%;
+  left:47.0%;
+  top:62.2%;
   transform:translate(-50%, -50%) scale(1);
   background:none;
   border:none;
@@ -1071,32 +1089,32 @@ body.invite-opened .page{
   cursor:pointer;
   transform-origin:center center;
   transition:
-    transform .16s ease-out,
-    filter .16s ease-out;
+    transform .14s ease-out,
+    filter .14s ease-out;
 }
 
 .invite-seal-btn:hover{
-  transform:translate(-50%, -50%) scale(1.01);
+  transform:translate(-50%, -50%) scale(1.005);
 }
 
 .invite-seal-btn:active{
-  transform:translate(-50%, -49.4%) scale(.988);
+  transform:translate(-50%, -49.7%) scale(.992);
 }
 
 .invite-seal-btn.pressed{
-  transform:translate(-50%, -49.2%) scale(.982);
+  transform:translate(-50%, -49.6%) scale(.988);
   filter:brightness(.97);
 }
 
 .invite-seal-img{
   display:block;
-  width:126px;
+  width:124px;
   height:auto;
   filter:drop-shadow(0 12px 20px rgba(70,10,20,.30));
 }
 
 .invite-open-label{
-  margin-top:4px;
+  margin-top:-6px;
   font-size:10px;
   letter-spacing:.10em;
   text-transform:uppercase;
@@ -1105,40 +1123,41 @@ body.invite-opened .page{
 
 @media (max-width:640px){
   .invite-cover{
-    padding-top:152px;
+    padding-top:150px;
     padding-bottom:24px;
   }
 
   .invite-cover-top{
-    margin-bottom:20px;
+    margin-top:28px;
+    margin-bottom:14px;
   }
 
   .invite-cover-names{
     font-size:clamp(50px, 14vw, 84px);
-    margin-bottom:16px;
+    margin-bottom:12px;
   }
 
   .invite-cover-date{
     font-size:18px;
-    margin:0 0 18px;
+    margin:0 0 10px;
   }
 
   .invite-envelope-wrap{
-    width:min(98vw, 500px);
-    margin-top:8px;
+    width:min(100%, 540px);
+    margin-top:-2px;
   }
 
   .invite-seal-btn{
-    left:47.8%;
-    top:61.3%;
+    left:46.8%;
+    top:62.6%;
   }
 
   .invite-seal-img{
-    width:128px;
+    width:122px;
   }
 
   .invite-open-label{
-    margin-top:2px;
+    margin-top:-10px;
     font-size:9px;
     letter-spacing:.09em;
   }

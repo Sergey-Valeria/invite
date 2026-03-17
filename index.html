@@ -53,6 +53,8 @@ a{ color:inherit; text-decoration:none; }
   min-height:100vh;
   display:flex;
   flex-direction:column;
+  position:relative;
+  z-index:0;
   opacity:0;
   visibility:hidden;
   transform:translateY(28px);
@@ -70,22 +72,25 @@ body.invite-opened .page{
 
 
     .wrap{
-      width:100%;
-      max-width:900px;
-      margin:0 auto;
-      padding:0 18px 60px;
-      position:relative;
-    }
-
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  padding:0 18px 60px;
+  position:relative;
+  z-index:1;
+}
     /* общий фон с птицами */
     .side-birds{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background:url("bg.jpg") center top / cover no-repeat;
-      opacity:0.2;
-      z-index:-2;
-    }
+  position:absolute;
+  top:100svh;
+  left:0;
+  right:0;
+  bottom:0;
+  pointer-events:none;
+  background:url("bg.jpg") center top / 100% auto no-repeat;
+  opacity:0.16;
+  z-index:0;
+}
 
     @media (max-width:780px){
       .wrap{ padding-inline: 14px; }

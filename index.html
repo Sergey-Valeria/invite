@@ -371,9 +371,9 @@ body.invite-opened .page{
 .intro-paper-text{
   position:absolute;
   left:50%;
-  top:8.5%;
+  top:8.7%;
   transform:translateX(-50%);
-  width:41%;
+  width:42%;
   text-align:center;
   color:#4a3730;
 }
@@ -398,14 +398,14 @@ body.invite-opened .page{
   margin:0 0 5px;
   font-family:"Cormorant Garamond","Playfair Display",serif;
   font-size:16px;
-  line-height:1.16;
+  line-height:1.18;
   font-style:italic;
 }
 
 @media (max-width:900px){
   .intro-paper-text{
-    top:8.7%;
-    width:42%;
+    top:8.8%;
+    width:42.5%;
   }
 
   .intro-paper-text .intro-quote{
@@ -417,41 +417,24 @@ body.invite-opened .page{
   }
 
   .intro-paper-text p{
-    font-size:13px;
-    line-height:1.14;
+    font-size:13.5px;
+    line-height:1.16;
   }
 }
 
 @media (max-width:640px){
-  .intro-envelope{
-    width:calc(100% + 120px);
-    max-width:none;
-    margin:0 auto 18px;
-    margin-left:50%;
-    transform:translateX(-50%);
+  .place-layout{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
   }
 
-  .intro-paper-text{
-    top:8.8%;
-    width:44%;
+  .place-text{
+    text-align:center;
   }
 
-  .intro-paper-text .intro-quote{
-    font-size:23px;
-    margin-bottom:6px;
-    line-height:1.02;
-  }
-
-  .intro-paper-text .intro-title{
-    font-size:16px;
-    margin-bottom:6px;
-    line-height:1.05;
-  }
-
-  .intro-paper-text p{
-    font-size:11.4px;
-    line-height:1.16;
-    margin-bottom:4px;
+  .place-illustration{
+    text-align:center;
   }
 }
 
@@ -996,9 +979,9 @@ body.invite-opened .page{
   inset:0;
   z-index:9999;
   display:flex;
-  align-items:flex-start;
   justify-content:center;
-  padding:110px 18px 28px;
+  align-items:flex-start;
+  padding:128px 18px 28px;
   overflow-y:auto;
   background:
     linear-gradient(rgba(35,16,20,.18), rgba(35,16,20,.28)),
@@ -1059,13 +1042,13 @@ body.invite-opened .page{
   font-size:19px;
   letter-spacing:.06em;
   color:#8c2c43;
-  margin:0 0 18px;
+  margin:0 0 16px;
 }
 
 .invite-envelope-wrap{
   position:relative;
   width:min(94vw, 470px);
-  margin:28px auto 0;
+  margin:10px auto 0;
 }
 
 .invite-envelope-img{
@@ -1080,7 +1063,7 @@ body.invite-opened .page{
 .invite-seal-btn{
   position:absolute;
   left:48.2%;
-  top:61.8%;
+  top:60.8%;
   transform:translate(-50%, -50%) scale(1);
   background:none;
   border:none;
@@ -1097,23 +1080,23 @@ body.invite-opened .page{
 }
 
 .invite-seal-btn:active{
-  transform:translate(-50%, -49.3%) scale(.988);
+  transform:translate(-50%, -49.4%) scale(.988);
 }
 
 .invite-seal-btn.pressed{
-  transform:translate(-50%, -49%) scale(.982);
+  transform:translate(-50%, -49.2%) scale(.982);
   filter:brightness(.97);
 }
 
 .invite-seal-img{
   display:block;
-  width:132px;
+  width:126px;
   height:auto;
   filter:drop-shadow(0 12px 20px rgba(70,10,20,.30));
 }
 
 .invite-open-label{
-  margin-top:8px;
+  margin-top:4px;
   font-size:10px;
   letter-spacing:.10em;
   text-transform:uppercase;
@@ -1122,13 +1105,12 @@ body.invite-opened .page{
 
 @media (max-width:640px){
   .invite-cover{
-    padding-top:132px;
+    padding-top:152px;
     padding-bottom:24px;
   }
 
   .invite-cover-top{
-    font-size:10px;
-    margin-bottom:18px;
+    margin-bottom:20px;
   }
 
   .invite-cover-names{
@@ -1142,21 +1124,21 @@ body.invite-opened .page{
   }
 
   .invite-envelope-wrap{
-    width:min(98vw, 520px);
-    margin-top:30px;
+    width:min(98vw, 500px);
+    margin-top:8px;
   }
 
   .invite-seal-btn{
     left:47.8%;
-    top:62.3%;
+    top:61.3%;
   }
 
   .invite-seal-img{
-    width:136px;
+    width:128px;
   }
 
   .invite-open-label{
-    margin-top:6px;
+    margin-top:2px;
     font-size:9px;
     letter-spacing:.09em;
   }
@@ -1277,11 +1259,11 @@ footer{
     <img src="envelope.png" alt="Письмо с приглашением" class="intro-envelope-img">
 
 <div class="intro-paper-text">
-  <div class="intro-quote">«Два сердца — одна история»</div>
+  <div class="intro-quote">«Два сердца —<br>одна история»</div>
   <div class="intro-title">Дорогие родные и друзья!</div>
   <p>25 апреля мы станем семьёй.</p>
-  <p>Для нас очень важно разделить этот день вместе с вами.</p>
-  <p>С любовью ждём вас на нашем празднике.</p>
+  <p>Для нас очень важно разделить<br>этот день вместе с вами.</p>
+  <p>С любовью ждём вас<br>на нашем празднике.</p>
 </div>
   </div>
 </section>

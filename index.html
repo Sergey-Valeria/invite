@@ -55,10 +55,10 @@ a{ color:inherit; text-decoration:none; }
   flex-direction:column;
   opacity:0;
   visibility:hidden;
-  transform:translateY(24px);
+  transform:translateY(28px);
   transition:
-    opacity 1.45s ease,
-    transform 1.45s cubic-bezier(.22,.61,.36,1);
+    opacity 1.9s ease,
+    transform 1.9s cubic-bezier(.22,.61,.36,1);
   overflow-x:hidden;
 }
 
@@ -1008,8 +1008,8 @@ body.invite-opened .page{
     linear-gradient(rgba(35,16,20,.18), rgba(35,16,20,.28)),
     url("bg.jpg") center center / cover no-repeat;
   transition:
-    opacity 1.8s ease,
-    visibility 1.8s ease;
+    opacity 2.1s ease,
+    visibility 2.1s ease;
 }
 
 .invite-cover.hide{
@@ -1036,9 +1036,9 @@ body.invite-opened .page{
   text-align:center;
   color:#fff;
   transition:
-    transform 1.6s cubic-bezier(.22,.61,.36,1),
-    opacity 1.6s ease,
-    filter 1.6s ease;
+    transform 1.9s cubic-bezier(.22,.61,.36,1),
+    opacity 1.9s ease,
+    filter 1.9s ease;
 }
 
 .invite-cover-top{
@@ -1652,20 +1652,20 @@ if (inviteCover && openInviteBtn) {
 
     setTimeout(() => {
       openInviteBtn.classList.remove("pressed");
-    }, 200);
+    }, 220);
 
     setTimeout(() => {
       inviteCover.classList.add("card-closing");
-    }, 760);
+    }, 900);
 
     setTimeout(() => {
       document.body.classList.add("invite-opened");
       document.body.classList.remove("cover-locked");
-    }, 1700);
+    }, 1950);
 
     setTimeout(() => {
       inviteCover.classList.add("hide");
-    }, 1980);
+    }, 2250);
   });
 }
 
